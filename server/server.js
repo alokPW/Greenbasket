@@ -19,7 +19,7 @@ await connectDB()
 await connectCloudinary()
 
 //connected to the frontend //aloow multiple origins
-const allowedOrigins=['http://localhost:5173'];
+const allowedOrigins=['http://localhost:5173','https://greenbasket-rn97.vercel.app'];
 
 app.post('/stripe',express.raw({type:'application/json'}),stripeWebhooks)
 
