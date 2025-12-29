@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 function Navbar() {
   const [open, setOpen] = React.useState(false);
   const {
+    isSeller,
     user,
     setUser,
     setShowUserLogin,
@@ -42,14 +43,16 @@ function Navbar() {
     }
   }, [searchQuery]);
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
+    // <nav className="  flex items-center justify-between  relative px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white  transition-all">
+   <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white transition-all">
+
       <NavLink to="/" onClick={() => setOpen(false)}>
         <img className="h-9" src={assets.logo} alt="logo" />
       </NavLink>
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        {/* <NavLink to="/seller">Seller Dashbord</NavLink> */}
+        {/* <NavLink to="/seller">Seller</NavLink> */}
         <NavLink to="/">Home</NavLink>
         <NavLink to="/products">All Product</NavLink>
         <NavLink to="/">Contact</NavLink>
@@ -129,14 +132,14 @@ function Navbar() {
         <img src={assets.menu_icon} alt="menu" className="w-4 h-4"></img>
       </button>
      </div>
-     
 
       {/* Mobile Menu */}
       {open && (
         <div
           className={`${
             open ? "flex" : "hidden"
-          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
+          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-50`}
+
         >
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home
@@ -177,8 +180,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-
-
