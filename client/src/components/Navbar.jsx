@@ -22,7 +22,7 @@ function Navbar() {
   const logout = async () => {
 
     try{
-      const {data}=await axios.get('/api/user/logout' , {withCredentials : true});
+      const {data}=await axios.get('/api/user/logout');
       if(data.success){
         toast.success(data.message)
          setUser(null);
